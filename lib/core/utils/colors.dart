@@ -7,4 +7,6 @@ class AppColors {
   static Color lightGrey = const Color(0xffC4C4C4);
 
   static Color primaryColor = const Color(0xff21D4B4);
+  static Color lightPrimaryColor = const Color(0xffF4FDFA);
+  static Color dotsIndicatorColor = const Color(0xffC0C0C0);
 }

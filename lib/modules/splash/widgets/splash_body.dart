@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/cache/cache_helper.dart';
 import '../../../core/functions/navigation.dart';
+import '../../../core/services/service_locator.dart';
 import '../../../core/utils/assets.dart';
 import '../../../core/utils/const.dart';
 import '../../../core/utils/strings.dart';
 import '../../../core/utils/text_style.dart';
+import '../../auth/presentation/screens/signUp_screen.dart';
 import '../../onboarding/screens/onboarding_screen.dart';
 
 class SplashBody extends StatefulWidget {
@@ -18,10 +21,14 @@ class SplashBody extends StatefulWidget {
 class _SplashBodyState extends State<SplashBody> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), () {
-      customReplacementNavigate(context, OnboardingScreen.routeName);
-    });
     super.initState();
+
+    bool onboardingVisited = getIt<CacheHelper>().getData(key: AppConstants.onboardingVisited) ?? false;
+    if (onboardingVisited) {
+      delayedNavigate(SignupScreen.routeName);
+    } else {
+      delayedNavigate(OnboardingScreen.routeName);
+    }
   }
 
   @override
@@ -35,7 +42,7 @@ class _SplashBodyState extends State<SplashBody> {
             children: [
               Expanded(
                 child: Center(
-                  child: SvgPicture.asset(Assets.assetsVectorsSplashLogo),
+                  child: SvgPicture.asset(Assets.assetsVectorsLogo),
                 ),
               ),
               Text(
@@ -48,5 +55,11 @@ class _SplashBodyState extends State<SplashBody> {
         ),
       ],
     );
+  }
+
+  void delayedNavigate(String routeName) {
+    Future.delayed(const Duration(seconds: 2), () {
+      customReplacementNavigate(context, routeName);
+    });
   }
 }
