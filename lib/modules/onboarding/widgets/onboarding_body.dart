@@ -72,7 +72,7 @@ class _OnboardingBodyState extends State<OnboardingBody> {
               maintainSize: true,
               child: CustomButton(
                 text: AppStrings.onboardingGetStartedText,
-                style: AppTextStyles.Poppins700white16,
+                style: AppTextStyles.Poppins700white14,
                 mainAxisAlignment: MainAxisAlignment.center,
                 backGroundColor: AppColors.black,
                 onPressed: () {

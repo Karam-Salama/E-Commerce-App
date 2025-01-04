@@ -2,16 +2,33 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsImagesOnboardingImage1
+  /// assets/images/onboarding_image_1.png
+  static const String assetsImagesOnboardingImage1 = "assets/images/onboarding_image_1.png";
+
+  /// Assets for assetsImagesOnboardingImage2
+  /// assets/images/onboarding_image_2.png
+  static const String assetsImagesOnboardingImage2 = "assets/images/onboarding_image_2.png";
+
+  /// Assets for assetsImagesOnboardingImage3
+  /// assets/images/onboarding_image_3.png
+  static const String assetsImagesOnboardingImage3 = "assets/images/onboarding_image_3.png";
+
+  /// Assets for assetsIconsEyeIcon
+  /// assets/icons/eye_icon.svg
+  static const String assetsIconsEyeIcon = "assets/icons/eye_icon.svg";
+
+  /// Assets for assetsIconsGoogleIcon
+  /// assets/icons/google_icon.svg
+  static const String assetsIconsGoogleIcon = "assets/icons/google_icon.svg";
+
+  /// Assets for assetsVectorsAuthLogo
+  /// assets/vectors/auth_logo.svg
+  static const String assetsVectorsAuthLogo = "assets/vectors/auth_logo.svg";
+
   /// Assets for assetsVectorsLogo
   /// assets/vectors/logo.svg
   static const String assetsVectorsLogo = "assets/vectors/logo.svg";
-
-
-  static const String assetsImagesOnboardingImage1 = "assets/images/onboarding_image_1.png";
-
-  static const String assetsImagesOnboardingImage2 = "assets/images/onboarding_image_2.png";
-
-  static const String assetsImagesOnboardingImage3 = "assets/images/onboarding_image_3.png";
 
   /// Assets for assetsVectorsOnboardingSubTitle1
   /// assets/vectors/onboarding_subTitle_1.svg
