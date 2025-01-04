@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../core/functions/onGenerate_routes.dart';
-import '../core/utils/colors.dart';
 import '../modules/splash/screens/splash_screen.dart';
 
 class Ecommerce extends StatelessWidget {
@@ -10,12 +9,7 @@ class Ecommerce extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        fontFamily: 'Cairo',
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primaryColor,
-        ),
-      ),
+      theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashScreen.routeName,
