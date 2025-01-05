@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
+import 'package:ecommerce_app/modules/auth/data/models/sign_out_model.dart';
 
 import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';
@@ -21,21 +22,21 @@ class AuthRepoImplem extends AuthRepo {
     required String password,
   }) async {
     try {
-    final response = await api.post(
-      EndPoint.signIn,
-      data: {
-        ApiKey.email: email,
-        ApiKey.password: password,
-      },
-    );
-    final user = SignInModel.fromJson(response);
-    CacheHelper().saveData(key: ApiKey.token, value: user.data.token);
-    CacheHelper().saveData(key: ApiKey.id, value: user.data.id);
-    return Right(user);
-  } on ServerException catch (e) {
-  log('Exception in AuthRepoImplementation.signIn method:  ${e.toString()}');
-        return Left(ServerException(errModel: e.errModel).toString());
-  }
+      final response = await api.post(
+        EndPoint.signIn,
+        data: {
+          ApiKey.email: email,
+          ApiKey.password: password,
+        },
+      );
+      final user = SignInModel.fromJson(response);
+      CacheHelper().saveData(key: ApiKey.token, value: user.data.token);
+      CacheHelper().saveData(key: ApiKey.id, value: user.data.id);
+      return Right(user);
+    } on ServerException catch (e) {
+      log('Exception in AuthRepoImplementation.signIn method:  ${e.toString()}');
+      return Left(ServerException(errModel: e.errModel).toString());
+    }
   }
 
   @override
@@ -61,6 +62,26 @@ class AuthRepoImplem extends AuthRepo {
       return Right(signUPModel);
     } on ServerException catch (e) {
       log('Exception in AuthRepoImplementation.signUp method:  ${e.toString()}');
+      return Left(ServerException(errModel: e.errModel).toString());
+    }
+  }
+
+  @override
+  Future<Either<String, SignOutModel>> signOut() async{
+    try {
+      final response = await api.post(
+        queryParameters: {
+          ApiKey.token: CacheHelper().getData(key: ApiKey.token),
+        },
+        EndPoint.signOut,
+        data: {
+          ApiKey.token: CacheHelper().getData(key: ApiKey.token),
+        },
+      );
+      final signOutModel = SignOutModel.fromJson(response);
+      return Right(signOutModel);
+    } on ServerException catch (e) {
+      log('Exception in AuthRepoImplementation.SignOut method:  ${e.toString()}');
       return Left(ServerException(errModel: e.errModel).toString());
     }
   }

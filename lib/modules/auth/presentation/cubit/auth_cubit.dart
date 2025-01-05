@@ -58,4 +58,10 @@ class AuthCubit extends Cubit<AuthState> {
       (signInModel) => emit(SignInSuccess(message: signInModel.message)),
     );
   }
+
+  signOut() async {
+    emit(SignOutLoading());
+    await authRepo.signOut();
+    emit(SignOutSuccess());
+  }
 }

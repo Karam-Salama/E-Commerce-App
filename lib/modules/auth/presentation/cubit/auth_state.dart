@@ -34,3 +34,14 @@ final class SignUpFailure extends AuthState {
 
   SignUpFailure({required this.errMessage});
 }
+
+// ! ============== Sign Out ==============
+final class SignOutSuccess extends AuthState {}
+
+final class SignOutLoading extends AuthState {}
+
+final class SignOutFailure extends AuthState {
+  final String errMessage;
+
+  SignOutFailure({required this.errMessage});
+}
