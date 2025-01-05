@@ -6,7 +6,11 @@ sealed class AuthState {}
 final class AuthInitial extends AuthState {}
 
 // ! ============== Sign In ==============
-final class SignInSuccess extends AuthState {}
+final class SignInSuccess extends AuthState {
+  final String message;
+
+  SignInSuccess({required this.message});
+}
 
 final class SignInLoading extends AuthState {}
 

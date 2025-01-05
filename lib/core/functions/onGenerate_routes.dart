@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 
+import '../../modules/auth/presentation/screens/signIn_screen.dart';
 import '../../modules/auth/presentation/screens/signUp_screen.dart';
+import '../../modules/home/presentation/screens/home_screen.dart';
 import '../../modules/onboarding/screens/onboarding_screen.dart';
 import '../../modules/splash/screens/splash_screen.dart';
 
@@ -14,6 +16,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const OnboardingScreen());
     case SignupScreen.routeName:
       return MaterialPageRoute(builder: (context) => const SignupScreen());
+    case SigninScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const SigninScreen());
+    case HomeScreen.routeName:
+      return MaterialPageRoute(builder: (context) => const HomeScreen());
 
     default:
       return MaterialPageRoute(builder: (context) => const Scaffold());

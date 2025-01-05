@@ -23,5 +23,7 @@ class ApiKey {
   static String image = "image";
 
   // sign in
+  static String points = "points";
+  static String credit = "credit";
 
 }

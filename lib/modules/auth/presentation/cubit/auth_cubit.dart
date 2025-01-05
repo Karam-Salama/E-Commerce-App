@@ -49,13 +49,13 @@ class AuthCubit extends Cubit<AuthState> {
 
   signIn() async {
     emit(SignInLoading());
-    // final response = await authRepo.signIn(
-    //   email: signInEmail.text,
-    //   password: signInPassword.text,
-    // );
-    // response.fold(
-    //   (errorMessage) => emit(SignInFailure(errMessage: errorMessage)),
-    //   (signInModel) => emit(SignInSuccess()),
-    // );
+    final response = await authRepo.signIn(
+      email: signInEmail.text,
+      password: signInPassword.text,
+    );
+    response.fold(
+      (errorMessage) => emit(SignInFailure(errMessage: errorMessage)),
+      (signInModel) => emit(SignInSuccess(message: signInModel.message)),
+    );
   }
 }
