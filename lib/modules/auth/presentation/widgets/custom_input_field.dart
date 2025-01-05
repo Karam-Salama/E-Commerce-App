@@ -46,6 +46,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
           decoration: InputDecoration(
             enabledBorder: getBorderStyle(color: AppColors.lightGrey),
             focusedBorder: getBorderStyle(color: AppColors.primaryColor),
+            border: getBorderStyle(color: AppColors.lightGrey),
             isDense: (widget.isDense != null) ? widget.isDense : false,
             hintText: widget.hintText,
             hintStyle: AppTextStyles.poppins400lightGray12,

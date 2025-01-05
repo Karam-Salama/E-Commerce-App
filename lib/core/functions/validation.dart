@@ -20,6 +20,16 @@ class Validation {
     return null;
   }
 
+  // Validates the phone number format.
+  static String? validatePhone(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is required';
+    } else if (!RegExp(r'^01[0-9]{9}$').hasMatch(value)) {
+      return 'Please enter a valid phone number';
+    }
+    return null;
+  }
+
   /// Validates the password to ensure it meets specific criteria.
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {

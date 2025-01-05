@@ -1,14 +1,16 @@
 import '../api/end_ponits.dart';
 
 class ErrorModel {
-  final int status;
+  final bool status;
   final String errorMessage;
+  final String data;
 
-  ErrorModel({required this.status, required this.errorMessage});
+  ErrorModel(this.data, {required this.status, required this.errorMessage});
   factory ErrorModel.fromJson(Map<String, dynamic> jsonData) {
     return ErrorModel(
+      jsonData[ApiKey.data],
       status: jsonData[ApiKey.status],
-      errorMessage: jsonData[ApiKey.errorMessage],
+      errorMessage: jsonData[ApiKey.message],
     );
   }
 }

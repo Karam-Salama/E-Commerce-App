@@ -2,13 +2,13 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/sign_In_model.dart';
+import '../../domain/repos/auth_repo.dart';
 
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
-  AuthCubit() : super(AuthInitial());
-  // AuthCubit(this.authRepoImplementation) : super(AuthInitial());
-  // final AuthRepoImplement authRepoImplementation;
+  AuthCubit(this.authRepo) : super(AuthInitial());
+  final AuthRepo authRepo;
 
   //Sign in Form key
   GlobalKey<FormState> signInFormKey = GlobalKey();
@@ -27,26 +27,29 @@ class AuthCubit extends Cubit<AuthState> {
   TextEditingController signUpFullName = TextEditingController();
   //Sign up email
   TextEditingController signUpEmail = TextEditingController();
+  // Sign up phone
+  TextEditingController signUpPhone = TextEditingController();
   //Sign up password
   TextEditingController signUpPassword = TextEditingController();
   SignInModel? user;
 
   signUp() async {
     emit(SignUpLoading());
-    // final response = await authRepoImplementation.signUp(
-    //   name: signUpName.text,
-    //   email: signUpEmail.text,
-    //   password: signUpPassword.text,
-    // );
-    // response.fold(
-    //   (errorMessage) => emit(SignUpFailure(errMessage: errorMessage)),
-    //   (signUpModel) => emit(SignUpSuccess(message: signUpModel.message)),
-    // );
+    final response = await authRepo.signUp(
+      name: signUpFullName.text,
+      email: signUpEmail.text,
+      phone: signUpPhone.text,
+      password: signUpPassword.text,
+    );
+    response.fold(
+      (errorMessage) => emit(SignUpFailure(errMessage: errorMessage)),
+      (signUpModel) => emit(SignUpSuccess(message: signUpModel.message)),
+    );
   }
 
   signIn() async {
     emit(SignInLoading());
-    // final response = await authRepoImplementation.signIn(
+    // final response = await authRepo.signIn(
     //   email: signInEmail.text,
     //   password: signInPassword.text,
     // );

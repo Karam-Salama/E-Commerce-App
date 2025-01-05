@@ -1,7 +1,7 @@
 class EndPoint {
-  static String baseUrl = "https://food-api-omega.vercel.app/api/v1/";
-  static String signIn = "user/signin";
-  static String signUp = "user/signup";
+  static String baseUrl = "https://student.valuxapps.com/api/";
+  static String signIn = "login";
+  static String signUp = "register";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -9,15 +9,19 @@ class EndPoint {
 
 class ApiKey {
   static String status = "status";
-  static String errorMessage = "ErrorMessage";
+  static String message = "message";
+  static String data = "data";
+  static String token = "token";
+  static String id = "id";
+
+  // auth 
   static String email = "email";
   static String password = "password";
-  static String token = "token";
-  static String message = "message";
-  static String id = "id";
+  // sign up
   static String name = "name";
   static String phone = "phone";
-  static String confirmPassword = "confirmPassword";
-  static String location = "location";
-  static String profilePic = "profilePic";
+  static String image = "image";
+
+  // sign in
+
 }
