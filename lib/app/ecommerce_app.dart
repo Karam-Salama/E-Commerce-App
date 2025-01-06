@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../core/functions/onGenerate_routes.dart';
+import '../modules/splash/screens/splash_screen.dart';
+
 class Ecommerce extends StatelessWidget {
   const Ecommerce({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(fontFamily: "Poppins"),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashScreen.routeName,
     );
   }
 }
