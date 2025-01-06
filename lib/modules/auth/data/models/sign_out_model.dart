@@ -1,8 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:ecommerce_app/core/api/end_ponits.dart';
 
-import 'sign_out_data_model.dart';
-
+// ! sign out model
 class SignOutModel {
   final bool status;
   final String message;
@@ -14,11 +12,28 @@ class SignOutModel {
     required this.data,
   });
 
-  factory SignOutModel.fromJson(Map<String, dynamic> json){
+  factory SignOutModel.fromJson(Map<String, dynamic> json) {
     return SignOutModel(
       status: json[ApiKey.status],
       message: json[ApiKey.message],
       data: SignOutDataModel.fromJson(json[ApiKey.data]),
+    );
+  }
+}
+
+// ! sign out data model
+class SignOutDataModel {
+  int id;
+  String token;
+  SignOutDataModel({
+    required this.id,
+    required this.token,
+  });
+
+  factory SignOutDataModel.fromJson(Map<String, dynamic> jsonData) {
+    return SignOutDataModel(
+      id: jsonData[ApiKey.id],
+      token: jsonData[ApiKey.token],
     );
   }
 }

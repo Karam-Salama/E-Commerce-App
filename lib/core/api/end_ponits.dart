@@ -15,6 +15,7 @@ class ApiKey {
   static String token = "token";
   static String id = "id";
   static String authorization = "Authorization";
+  static String lang = "lang";
 
   // auth 
   static String email = "email";
