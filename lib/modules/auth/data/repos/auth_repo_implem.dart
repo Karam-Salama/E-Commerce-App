@@ -7,6 +7,7 @@ import '../../../../core/api/api_consumer.dart';
 import '../../../../core/api/end_ponits.dart';
 import '../../../../core/cache/cache_helper.dart';
 import '../../../../core/errors/exceptions.dart';
+import '../../../../core/services/service_locator.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../models/sign_In_model.dart';
 import '../models/sign_up_model.dart';
@@ -30,8 +31,8 @@ class AuthRepoImplem extends AuthRepo {
         },
       );
       final user = SignInModel.fromJson(response);
-      CacheHelper().saveData(key: ApiKey.token, value: user.data.token);
-      CacheHelper().saveData(key: ApiKey.id, value: user.data.id);
+      getIt<CacheHelper>().saveData(key: ApiKey.token, value: user.data.token);
+      getIt<CacheHelper>().saveData(key: ApiKey.id, value: user.data.id);
       return Right(user);
     } on ServerException catch (e) {
       log('Exception in AuthRepoImplementation.signIn method:  ${e.toString()}');
