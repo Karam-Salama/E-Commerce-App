@@ -1,10 +1,12 @@
-import 'package:ecommerce_app/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/strings.dart';
 import '../../../../core/widgets/custom_header_text.dart';
+import '../cubit/home_cubit.dart';
 import 'custom_home_banners.dart';
 import 'custom_home_categories.dart';
 import 'custom_home_header.dart';
+import 'custom_home_products_list.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -12,6 +14,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    context.read<HomeCubit>().getBannersData();
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
       child: CustomScrollView(
@@ -41,41 +44,6 @@ class HomeBody extends StatelessWidget {
           SliverToBoxAdapter(child: CustomHomeProductsList()),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),
         ],
-      ),
-    );
-  }
-}
-
-class CustomHomeProductsList extends StatelessWidget {
-  const CustomHomeProductsList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: 10,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 8.0,
-        crossAxisSpacing: 8.0,
-      ),
-      itemBuilder: (context, index) => CustomProductsCard(),
-    );
-  }
-}
-
-class CustomProductsCard extends StatelessWidget {
-  const CustomProductsCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 150,
-      decoration: BoxDecoration(
-        color: AppColors.primaryColor,
-        borderRadius: BorderRadius.circular(24),
       ),
     );
   }

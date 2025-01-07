@@ -3,6 +3,7 @@ class EndPoint {
   static String signIn = "login";
   static String signUp = "register";
   static String signOut = "logout";
+  static String banners = "banners";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }

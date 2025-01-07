@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,13 +17,13 @@ class CustomHomeHeader extends StatelessWidget {
           children: [
             Container(
               width: size.width * 0.05,
-              height: size.height * 0.1,
+              height: size.height * 0.08,
               child: SvgPicture.asset(Assets.assetsIconsSearchIcon),
             ),
             SizedBox(width: size.width * 0.02),
             Container(
               width: size.width * 0.05,
-              height: size.height * 0.1,
+              height: size.height * 0.08,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 image: DecorationImage(
