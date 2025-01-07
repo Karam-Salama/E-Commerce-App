@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/strings.dart';
 import '../../../../core/widgets/custom_header_text.dart';
-import '../cubit/home_cubit.dart';
 import 'custom_home_banners.dart';
 import 'custom_home_categories.dart';
 import 'custom_home_header.dart';
@@ -14,7 +12,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    context.read<HomeCubit>().getBannersData();
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
       child: CustomScrollView(
@@ -29,15 +27,17 @@ class HomeBody extends StatelessWidget {
             child: CustomHeaderText(
               text1: AppStrings.categories,
               text2: AppStrings.seeAll,
+              onpress2: () {},
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),
-          SliverToBoxAdapter(child: CustomHomeCategoriesList(itemCount: 6)),
+          SliverToBoxAdapter(child: CustomHomeCategoriesList()),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),
           SliverToBoxAdapter(
             child: CustomHeaderText(
               text1: AppStrings.latestProducts,
               text2: AppStrings.seeAll,
+              onpress2: () {},
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),

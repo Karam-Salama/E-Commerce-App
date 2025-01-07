@@ -4,6 +4,8 @@ class EndPoint {
   static String signUp = "register";
   static String signOut = "logout";
   static String banners = "banners";
+  static String categories = "categories";
+  static String home = "home";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -18,7 +20,7 @@ class ApiKey {
   static String authorization = "Authorization";
   static String lang = "lang";
 
-  // auth 
+  // auth
   static String email = "email";
   static String password = "password";
   // sign up
@@ -33,4 +35,13 @@ class ApiKey {
   // sign out
   static String fcmToken = "fcm_token";
 
+  // home
+  static String price = "price";
+  static String oldPrice = "old_price";
+  static String discount = "discount";
+  static String description = "description";
+  static String images = "images";
+  static String inFavorites = "in_favorites";
+  static String inCart = "in_cart";
+  static  String products = "products";
 }

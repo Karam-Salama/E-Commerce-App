@@ -15,10 +15,13 @@ class CustomHomeHeader extends StatelessWidget {
         SvgPicture.asset(Assets.assetsVectorsAuthLogo),
         Row(
           children: [
-            Container(
-              width: size.width * 0.05,
-              height: size.height * 0.08,
-              child: SvgPicture.asset(Assets.assetsIconsSearchIcon),
+            InkWell(
+              onTap: () {},
+              child: Container(
+                width: size.width * 0.05,
+                height: size.height * 0.08,
+                child: SvgPicture.asset(Assets.assetsIconsSearchIcon),
+              ),
             ),
             SizedBox(width: size.width * 0.02),
             Container(

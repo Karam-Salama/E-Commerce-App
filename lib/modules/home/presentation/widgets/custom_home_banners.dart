@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../cubit/home_cubit.dart';
+import '../cubit/banners_cubit.dart';
 import 'custom_home_banners_item.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +12,7 @@ class CustomHomeBannersList extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double cardWidth = screenWidth * 0.95;
-    return BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<BannersCubit, BannersState>(
       builder: (context, state) {
         if (state is BannersLoadingState) {
           return const SizedBox(
