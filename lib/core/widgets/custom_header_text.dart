@@ -30,28 +30,24 @@ class CustomHeaderText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Expanded(
-          child: InkWell(
-            onTap: onpress1,
-            child: Text(
-              text1,
-              style: styleText1 ?? AppTextStyles.Poppins700black24,
-              textAlign: textAlign1 ?? TextAlign.start,
-            ),
+        InkWell(
+          onTap: onpress1,
+          child: Text(
+            text1,
+            style: styleText1 ?? AppTextStyles.poppins600black18,
+            textAlign: textAlign1 ?? TextAlign.start,
           ),
         ),
         if (text2 != null)
-          Expanded(
-            child: InkWell(
-              splashColor: AppColors.primaryColor.withOpacity(0.3),
-              highlightColor: AppColors.primaryColor.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(8.0),
-              onTap: onpress2,
-              child: Text(
-                text2!,
-                style: AppTextStyles.poppins700primaryColor10,
-                textAlign: textAlign2,
-              ),
+          InkWell(
+            splashColor: AppColors.primaryColor.withOpacity(0.3),
+            highlightColor: AppColors.primaryColor.withOpacity(0.2),
+            borderRadius: BorderRadius.circular(8.0),
+            onTap: onpress2,
+            child: Text(
+              text2!,
+              style: AppTextStyles.poppins700primaryColor10,
+              textAlign: textAlign2,
             ),
           ),
       ],

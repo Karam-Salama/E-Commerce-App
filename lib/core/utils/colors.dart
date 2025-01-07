@@ -9,4 +9,6 @@ class AppColors {
   static Color primaryColor = const Color(0xff21D4B4);
   static Color lightPrimaryColor = const Color(0xffF4FDFA);
   static Color dotsIndicatorColor = const Color(0xffC0C0C0);
+
+  static Color categoryBorderColor = const Color(0xffF4F5FD);
 }

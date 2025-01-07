@@ -9,7 +9,7 @@ import '../../../../core/utils/strings.dart';
 import '../../../../core/utils/text_style.dart';
 import '../../../../core/widgets/custom_btn.dart';
 import '../../../../core/widgets/custom_dialog.dart';
-import '../../../home/presentation/screens/home_screen.dart';
+import '../../../home/presentation/widgets/custom_home_nav_bar_widget.dart';
 import '../cubit/auth_cubit.dart';
 import 'custom_input_field.dart';
 
@@ -92,7 +92,7 @@ class _CustomSignInFormState extends State<CustomSignInForm> {
           message: state.message,
           textButton: AppStrings.ok,
           onpressed: () {
-            customReplacementNavigate(context, HomeScreen.routeName);
+            customReplacementNavigate(context, HomeNavBarWidget.routeName);
           },
         ),
       );

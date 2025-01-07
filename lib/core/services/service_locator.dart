@@ -14,5 +14,6 @@ void setUpServiceLocator() {
   getIt.registerSingleton<Dio>(Dio());
   getIt.registerSingleton<ApiConsumer>(DioConsumer(dio: getIt<Dio>()));
   getIt.registerSingleton<AuthRepo>(AuthRepoImplem(api: getIt<ApiConsumer>()));
+  //getIt.registerSingleton<HomeRepo>(HomeRepoImplemt(api: getIt<ApiConsumer>()));
     
 }

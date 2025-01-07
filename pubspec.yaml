@@ -26,6 +26,7 @@ dependencies:
   intl: ^0.20.1
   flutter_bloc: ^8.1.6
   email_validator: ^3.0.0
+  
 
 #! ==================================  Dev  Dependencies  Section  ==============================
 dev_dependencies:
@@ -68,7 +69,7 @@ flutter:
   
 #! ==================================  Generate  Flutter  Assets  Section  ==============================
 flutter_assets:
-  assets_path: assets/images/
+  assets_path: assets/vectors/
   output_path: lib/core/utils/
   filename: assets.dart
 flutter_intl:

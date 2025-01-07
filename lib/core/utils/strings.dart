@@ -30,4 +30,13 @@ abstract class AppStrings {
   static const String ok = "Ok";
   static const String tryAgain = "try again";
   static const String signInSuccess = "SignIn Success";
+
+  // home
+  static const String categories = "Categories";
+  static const String seeAll = "SEEALL";
+  static const String latestProducts = "Latest Products";
+  static const String home = "Home";
+  static const String cart = "Cart";
+  static const String profile = "Profile";
+  static const String wishlist = "Wishlist";
 }

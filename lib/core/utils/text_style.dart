@@ -63,4 +63,11 @@ abstract class AppTextStyles {
     fontFamily: "Poppins",
     color: AppColors.lightGrey,
   );
+
+  static TextStyle poppins600black18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: "Poppins",
+    color: AppColors.black,
+  );
 }
