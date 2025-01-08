@@ -23,6 +23,27 @@ class ProductModel {
     required this.in_cart,
   });
 
+  // Add copyWith Method
+  ProductModel copyWith({
+    int? id,
+    String? name,
+    String? image,
+    double? price,
+    bool? in_favorites,
+  }) {
+    return ProductModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      image: image ?? this.image,
+      price: price ?? this.price,
+      description: description,
+      discount: discount,
+      in_cart: in_cart,
+      old_price: old_price,
+      in_favorites: in_favorites ?? this.in_favorites,
+    );
+  }
+
   factory ProductModel.fromJson(Map<String, dynamic> json){
     return ProductModel(
       id: json[ApiKey.id].toInt(),

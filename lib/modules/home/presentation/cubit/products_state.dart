@@ -16,3 +16,15 @@ class ProductsFailureState extends ProductsState {
   final String errorMessage;
   ProductsFailureState({required this.errorMessage});
 }
+
+class FavoriteProductLoadingState extends ProductsState {}
+
+class FavoriteProductSuccessState extends ProductsState {
+  final ProductModel product;
+  FavoriteProductSuccessState({required this.product});
+}
+
+class FavoriteProductFailureState extends ProductsState {
+  final String errorMessage;
+  FavoriteProductFailureState({required this.errorMessage});
+}

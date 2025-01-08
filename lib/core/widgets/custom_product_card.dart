@@ -1,6 +1,8 @@
 import 'package:ecommerce_app/core/utils/text_style.dart';
 import 'package:ecommerce_app/modules/home/data/models/product_model.dart';
+import 'package:ecommerce_app/modules/home/presentation/cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../utils/colors.dart';
 
 class CustomProductCard extends StatelessWidget {
@@ -8,6 +10,7 @@ class CustomProductCard extends StatelessWidget {
   final ProductModel product;
   @override
   Widget build(BuildContext context) {
+    ProductsCubit productsCubit = BlocProvider.of<ProductsCubit>(context);
     return InkWell(
       onTap: () {},
       child: Card(
@@ -53,10 +56,17 @@ class CustomProductCard extends StatelessWidget {
                 children: [
                   Text('\$${product.price}',
                       style: AppTextStyles.Poppins700black14),
-                  Icon(
-                    Icons.favorite,
-                    color: AppColors.white,
-                    size: 24,
+                  IconButton(
+                    onPressed: () {
+                      productsCubit.toggleFavorite(product.id);
+                    },
+                    icon: Icon(
+                      Icons.favorite,
+                      color: productsCubit.favorites[product.id] == true
+                          ? AppColors.primaryColor
+                          : AppColors.white,
+                      size: 24,
+                    ),
                   ),
                 ],
               ),
