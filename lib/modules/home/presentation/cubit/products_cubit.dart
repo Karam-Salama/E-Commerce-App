@@ -9,10 +9,10 @@ part 'products_state.dart';
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit(this.homeRepo) : super(ProductsInitial());
   final HomeRepo homeRepo;
-  
-  Future<void> getProducts() async {
+
+  Future<void> getProductsInHome() async {
     emit(ProductsLoadingState());
-    final response = await homeRepo.getProsucts();
+    final response = await homeRepo.getProductsInHome();
     response.fold(
       (failure) => emit(ProductsFailureState(errorMessage: failure)),
       (products) => emit(ProductsSuccessState(products: products)),

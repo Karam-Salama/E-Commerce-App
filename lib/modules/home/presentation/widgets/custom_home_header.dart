@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/assets.dart';
+import '../screens/search_screen.dart';
 
 class CustomHomeHeader extends StatelessWidget {
   const CustomHomeHeader({super.key});
@@ -16,7 +17,12 @@ class CustomHomeHeader extends StatelessWidget {
         Row(
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
               child: Container(
                 width: size.width * 0.05,
                 height: size.height * 0.08,

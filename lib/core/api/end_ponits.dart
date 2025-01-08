@@ -6,6 +6,7 @@ class EndPoint {
   static String banners = "banners";
   static String categories = "categories";
   static String home = "home";
+  static String search = "products/search";
   static String getUserDataEndPoint(id) {
     return "user/get-user/$id";
   }
@@ -43,5 +44,6 @@ class ApiKey {
   static String images = "images";
   static String inFavorites = "in_favorites";
   static String inCart = "in_cart";
-  static  String products = "products";
+  static String products = "products";
+  static String text = "text";
 }

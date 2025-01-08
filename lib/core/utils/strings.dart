@@ -39,4 +39,5 @@ abstract class AppStrings {
   static const String cart = "Cart";
   static const String profile = "Profile";
   static const String wishlist = "Wishlist";
+  static const String search = "Search";
 }

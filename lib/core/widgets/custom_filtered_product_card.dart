@@ -1,11 +1,13 @@
-import 'package:ecommerce_app/core/utils/text_style.dart';
-import 'package:ecommerce_app/modules/home/data/models/product_model.dart';
-import 'package:flutter/material.dart';
-import '../utils/colors.dart';
 
-class CustomProductCard extends StatelessWidget {
-  const CustomProductCard({super.key, required this.product});
-  final ProductModel product;
+import 'package:flutter/material.dart';
+
+import '../../modules/home/data/models/filtered_product_model.dart';
+import '../utils/colors.dart';
+import '../utils/text_style.dart';
+
+class CustomFilteredProductCard extends StatelessWidget {
+  const CustomFilteredProductCard({super.key, required this.product});
+  final FilteredProductModel product;
   @override
   Widget build(BuildContext context) {
     return InkWell(

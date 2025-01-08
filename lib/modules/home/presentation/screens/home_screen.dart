@@ -16,16 +16,15 @@ class HomeScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) =>
-              BannersCubit(getIt<HomeRepo>())..getBannersData()
-        ),
+            create: (context) =>
+                BannersCubit(getIt<HomeRepo>())..getBannersData()),
         BlocProvider(
           create: (context) =>
               CategoriesCubit(getIt<HomeRepo>())..getCategoriesData(),
         ),
         BlocProvider(
           create: (context) =>
-              ProductsCubit(getIt<HomeRepo>())..getProducts(),
+              ProductsCubit(getIt<HomeRepo>())..getProductsInHome(),
         ),
       ],
       child: Scaffold(
