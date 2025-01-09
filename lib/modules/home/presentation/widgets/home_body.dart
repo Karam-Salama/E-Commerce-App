@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/core/functions/navigation.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/strings.dart';
 import '../../../../core/widgets/custom_header_text.dart';
+import '../../../categories/screens/categories_screen.dart';
 import 'custom_home_banners.dart';
 import 'custom_home_categories.dart';
 import 'custom_home_header.dart';
@@ -27,7 +29,9 @@ class HomeBody extends StatelessWidget {
             child: CustomHeaderText(
               text1: AppStrings.categories,
               text2: AppStrings.seeAll,
-              onpress2: () {},
+              onpress2: () {
+                navigate(context, CategoriesScreen());
+              },
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),
@@ -37,7 +41,9 @@ class HomeBody extends StatelessWidget {
             child: CustomHeaderText(
               text1: AppStrings.latestProducts,
               text2: AppStrings.seeAll,
-              onpress2: () {},
+              onpress2: () {
+                // navigate(context, ProductsScreen());
+              },
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: size.width * 0.05)),

@@ -5,6 +5,10 @@ import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 
 import '../../../../core/utils/assets.dart';
 import '../../../../core/utils/colors.dart';
+import '../../../cart/screens/cart_screen.dart';
+import '../../../categories/screens/categories_screen.dart';
+import '../../../favorite/screens/favorite_screen.dart';
+import '../../../setting/screens/profile_screen.dart';
 import '../screens/home_screen.dart';
 
 class HomeNavBarWidget extends StatelessWidget {
@@ -46,10 +50,10 @@ class HomeNavBarWidget extends StatelessWidget {
   List<Widget> _buildScreens() {
     return const [
       HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
-      HomeScreen(),
+      CategoriesScreen(),
+      CartScreen(),
+      FavoriteScreen(),
+      ProfileScreen(),
     ];
   }
 
