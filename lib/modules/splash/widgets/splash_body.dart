@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/core/api/end_ponits.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -8,7 +9,8 @@ import '../../../core/utils/assets.dart';
 import '../../../core/utils/const.dart';
 import '../../../core/utils/strings.dart';
 import '../../../core/utils/text_style.dart';
-import '../../auth/presentation/screens/signUp_screen.dart';
+import '../../auth/presentation/screens/signIn_screen.dart';
+import '../../home/presentation/screens/home_screen.dart';
 import '../../onboarding/screens/onboarding_screen.dart';
 
 class SplashBody extends StatefulWidget {
@@ -23,9 +25,13 @@ class _SplashBodyState extends State<SplashBody> {
   void initState() {
     super.initState();
 
-    bool onboardingVisited = getIt<CacheHelper>().getData(key: AppConstants.onboardingVisited) ?? false;
+    bool onboardingVisited =
+        getIt<CacheHelper>().getData(key: AppConstants.onboardingVisited) ??
+            false;
     if (onboardingVisited) {
-      delayedNavigate(SignupScreen.routeName);
+      getIt<CacheHelper>().getData(key: ApiKey.token) == null
+          ? delayedNavigate(SigninScreen.routeName)
+          : delayedNavigate(HomeScreen.routeName);
     } else {
       delayedNavigate(OnboardingScreen.routeName);
     }
