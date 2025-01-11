@@ -6,13 +6,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../utils/colors.dart';
 
 class CustomProductCard extends StatelessWidget {
-  const CustomProductCard({super.key, required this.product});
+  const CustomProductCard(
+      {super.key, required this.product, required this.onTap});
   final ProductModel product;
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     ProductsCubit productsCubit = BlocProvider.of<ProductsCubit>(context);
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Card(
         color: AppColors.lightGrey,
         elevation: 4.0,
@@ -47,15 +49,16 @@ class CustomProductCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            const SizedBox(height: 6.0),
             //  Price and Favorite
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('\$${product.price}',
-                      style: AppTextStyles.Poppins700black14),
+                  Text(
+                    '\$${product.price}',
+                    style: AppTextStyles.Poppins700black14,
+                  ),
                   IconButton(
                     onPressed: () {
                       productsCubit.toggleFavorite(product.id);
@@ -65,13 +68,12 @@ class CustomProductCard extends StatelessWidget {
                       color: productsCubit.favorites[product.id] == true
                           ? AppColors.primaryColor
                           : AppColors.white,
-                      size: 24,
+                      size: 18,
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 8.0),
           ],
         ),
       ),

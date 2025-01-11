@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../cubit/categories_cubit.dart';
+
+import 'category_details.dart';
 import 'custom_home_category_item.dart';
 
 class CustomHomeCategoriesList extends StatelessWidget {
@@ -31,7 +34,19 @@ class CustomHomeCategoriesList extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 final category = state.categories[index];
-                return CustomHomeCategoryItem(category: category);
+                return CustomHomeCategoryItem(
+                  category: category,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CategoryDetails(
+                          category: category,
+                        ),
+                      ),
+                    );
+                  },
+                );
               },
             ),
           );

@@ -10,8 +10,8 @@ class EndPoint {
   static String favorites ="favorites";
 
 
-  static String getUserDataEndPoint(id) {
-    return "user/get-user/$id";
+  static String getProductForSpecificCategoryEndPoint(id) {
+    return "categories/$id";
   }
 
 }

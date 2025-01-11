@@ -1,28 +1,23 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/custom_product_card.dart';
-import '../cubit/products_cubit.dart';
+import '../cubit/categories_cubit.dart';
 import '../screens/product_details_screen.dart';
+import 'custom_category_card.dart';
 
-class CustomHomeProductsList extends StatelessWidget {
-  const CustomHomeProductsList({super.key});
+class ProductsListByCategory extends StatelessWidget {
+  const ProductsListByCategory({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProductsCubit, ProductsState>(
+    return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
-        if (state is ProductsLoadingState) {
-          return const SizedBox(
-            height: 200,
-            child: Center(child: CircularProgressIndicator()),
-          );
-        } else if (state is ProductsFailureState) {
-          return SizedBox(
-            height: 200,
-            child: Center(child: Text(state.errorMessage)),
-          );
-        } else if (state is ProductsSuccessState) {
+        if (state is ProductsByCategoryLoadingState) {
+          return Center(child: CircularProgressIndicator());
+        } else if (state is ProductsByCategoryFailureState) {
+          return Center(child: Text(state.errorMessage));
+        } else if (state is ProductsByCategorySuccessState) {
           return GridView.builder(
             shrinkWrap: true,
             padding: const EdgeInsets.symmetric(horizontal: 12.0),
@@ -35,11 +30,9 @@ class CustomHomeProductsList extends StatelessWidget {
               mainAxisExtent: 245,
             ),
             itemBuilder: (context, index) {
-              final product = state.products[index];
-              return CustomProductCard(
-                product: product,
+              return CustomCategoryCard(
+                productModel: state.products[index],
                 onTap: () {
-                  //! Look here
                   Navigator.push(
                     context,
                     MaterialPageRoute(

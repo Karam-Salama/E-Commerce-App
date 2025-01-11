@@ -3,15 +3,15 @@ import '../../../../core/utils/colors.dart';
 import '../../data/models/category_model.dart';
 
 class CustomHomeCategoryItem extends StatelessWidget {
-  const CustomHomeCategoryItem({super.key, required this.category});
+  const CustomHomeCategoryItem({super.key, required this.category, required this.onTap});
   final CategoryModel category;
-
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         width: size.width * 0.3,
         margin: const EdgeInsets.symmetric(horizontal: 8),

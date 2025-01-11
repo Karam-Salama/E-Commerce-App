@@ -63,19 +63,33 @@ class HomeRepoImplment extends HomeRepo {
   }
 
   @override
-Future<Either<String, ProductModel>> getFavoritesProducts({
-  required int productId,
-}) async {
-  try {
-    final response = await api.post(
-      EndPoint.favorites,
-      data: {ApiKey.productId: productId},
-    );
-    final ProductModel data = ProductModel.fromJson(response[ApiKey.data]);
-    return Right(data);
-  } on ServerException catch (e) {
-    return Left(e.errModel.errorMessage);
+  Future<Either<String, ProductModel>> getFavoritesProducts({
+    required int productId,
+  }) async {
+    try {
+      final response = await api.post(
+        EndPoint.favorites,
+        data: {ApiKey.productId: productId},
+      );
+      final ProductModel data = ProductModel.fromJson(response[ApiKey.data]);
+      return Right(data);
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
   }
-}
 
+  @override
+  Future<Either<String, List<ProductModel>>> getProductsForSpecificCategory({
+    required int categoryId,
+  }) async {
+    try {
+      final response = await api.get(
+        EndPoint.getProductForSpecificCategoryEndPoint(categoryId),
+      );
+      final List<dynamic> data = response[ApiKey.data][ApiKey.data];
+      return Right(data.map((x) => ProductModel.fromJson(x)).toList());
+    } on ServerException catch (e) {
+      return Left(e.errModel.errorMessage);
+    }
+  }
 }

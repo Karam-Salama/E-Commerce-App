@@ -10,6 +10,7 @@ abstract class HomeRepo {
   Future<Either<String, List<BannerModel>>> getBannersData();
   Future<Either<String, List<CategoryModel>>> getCategoriesData();
   Future<Either<String, List<ProductModel>>> getProductsInHome();
+  Future<Either<String, List<ProductModel>>> getProductsForSpecificCategory({required int categoryId});
   
   // ! Search Data
   Future<Either<String, List<FilteredProductModel>>> getProductsBySearch({

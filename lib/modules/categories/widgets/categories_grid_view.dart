@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../home/presentation/cubit/categories_cubit.dart';
+import '../../home/presentation/widgets/category_details.dart';
 import '../../home/presentation/widgets/custom_home_category_item.dart';
 
 class CategoriesGridView extends StatelessWidget {
@@ -35,7 +36,20 @@ class CategoriesGridView extends StatelessWidget {
             ),
             itemBuilder: (context, index) {
               final category = state.categories[index];
-              return CustomHomeCategoryItem(category: category);
+              return CustomHomeCategoryItem(
+                category: category,
+                onTap: () {
+                  //! Look here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CategoryDetails(
+                        category: category,
+                      ),
+                    ),
+                  );
+                },
+              );
             },
           );
         }
